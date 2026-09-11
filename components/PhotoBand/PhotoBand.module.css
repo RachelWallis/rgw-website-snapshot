@@ -1,0 +1,49 @@
+.photoBand {
+  position: relative;
+  margin: 20px 20px 0;
+  border-radius: 26px;
+  overflow: hidden;
+  height: 200px;
+}
+
+.photoBand::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 20, 14, 0.35);
+}
+
+/* Hero variant: page title overlaid and centred (height stays capped at
+   200px, inherited from .photoBand). */
+.withTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.withTitle::after {
+  /* Darker wash so the white title stays legible over any photo. */
+  background: rgba(10, 20, 14, 0.45);
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0 24px;
+  max-width: 14em;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  /* Kept in sync with the homepage hero title (Hero.module.css .title). */
+  font-size: clamp(3.3rem, 6.4vw, 5.2rem);
+}
+
+@media (max-width: 48em) {
+  .photoBand {
+    margin: 12px 12px 0;
+    height: 180px;
+  }
+}

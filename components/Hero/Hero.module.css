@@ -1,0 +1,318 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(10, 20, 14, 0.78) 0%,
+    rgba(10, 20, 14, 0.45) 55%,
+    rgba(10, 20, 14, 0.25) 100%
+  );
+}
+
+.heroTop,
+.heroMain,
+.heroBottom {
+  position: relative;
+  z-index: 1;
+}
+
+.heroTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 34px;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* The wordmark is a very wide lockup (~10.8:1). To keep the header on one row
+   at every width, the logo width is capped so it always leaves room for the
+   actions (call pill + burger, or nav + phone number on desktop) — which are
+   flex-shrink:0 and must never clip. The reserve accounts for the actions,
+   heroTop padding/gap, and the hero's 20px side margins. Sizes down on
+   narrow screens; capped by max-height on wide ones. */
+.brandLogo {
+  height: auto;
+  width: auto;
+  max-height: 52px;
+  max-width: calc(100vw - 380px);
+  object-fit: contain;
+  object-position: left center;
+}
+
+.navPill {
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 10px;
+  display: flex;
+  gap: 4px;
+  box-shadow: 0 6px 24px rgba(16, 22, 20, 0.15);
+}
+
+.navPill a {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--rgw-ink-2);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navPill a:hover {
+  background: var(--rgw-sage-soft);
+}
+
+.heroMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 44px 40px;
+  max-width: 640px;
+}
+
+.title {
+  color: #fff;
+  /* Two sentences, not the single short line PhotoBand's title clamp was
+     tuned for — sized down so it doesn't overflow the hero on desktop. */
+  font-size: clamp(2.1rem, 3.6vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 18px;
+  max-width: 28em;
+  margin: 0 0 30px;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Second door next to the quote CTA — same pill shape as PillButton but a
+   plain tel: anchor (no arrow chip, it's not a "go somewhere on this site"
+   action). */
+.phonePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.priceAnchor {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13.5px;
+  margin: 14px 0 0;
+}
+
+.heroBottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 44px 34px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.revMini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.revLabel {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.revAsOf {
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 20px;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: #fff;
+  flex-wrap: wrap;
+  /* Stay right-aligned even when the Google rating badge is hidden
+     (no Places API configured yet) and it's the only child. */
+  margin-left: auto;
+}
+
+/* backdrop-filter fallback (older Firefox/Android): opaque-enough bg so the
+   glass card stays readable if the browser ignores the blur. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background: rgba(16, 22, 20, 0.55);
+  }
+}
+
+.glassBig {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.glassLabel {
+  font-size: 13.5px;
+  opacity: 0.9;
+  max-width: 14em;
+}
+
+.heroTopActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Burger only makes sense where the nav pill is hidden — the homepage
+   hero has no other way to reach site navigation on mobile otherwise. */
+.burger {
+  display: none;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  width: 100%;
+  padding: 0 var(--mantine-spacing-md);
+  text-decoration: none;
+  color: var(--mantine-color-black);
+  font-weight: 500;
+  font-size: var(--mantine-font-size-sm);
+  border-radius: var(--mantine-radius-md);
+}
+
+.drawerLink:hover {
+  background-color: var(--mantine-color-gray-0);
+}
+
+/* Phone CTA: a real tel: link on touch/mobile (tap-to-dial is genuinely
+   useful there); a plain, non-clickable pill showing the number on desktop
+   (clicking tel: links there just tries to launch a calling app). Styled
+   standalone (not sharing PillButton's hover-lift) since it isn't a button. */
+.phoneDesktop {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: var(--rgw-ink);
+  color: #fff;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* Below 80em the full nav pill + logo + phone number can't share one row, so
+   use the burger header (which keeps the call pill, so the phone stays one tap
+   away). The desktop nav only appears once there's genuinely room for it. */
+@media (max-width: 80em) {
+  .navPill {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+
+@media (min-width: 80em) {
+  .phoneDesktop {
+    display: inline-flex;
+  }
+
+  /* Desktop reserve = nav pill + phone number + spacing + side margins. */
+  .brandLogo {
+    max-height: 44px;
+    max-width: calc(100vw - 924px);
+  }
+}
+
+@media (max-width: 48em) {
+  .hero {
+    /* Size to content on phones so there's no empty image below the CTA. */
+    min-height: 0;
+    margin: 12px;
+  }
+
+  .heroTop {
+    padding: 18px 20px;
+  }
+
+  .heroMain {
+    padding: 20px 24px 28px;
+  }
+
+  /* Keep the "90 seconds" message on phones, but hide its "Start now" button —
+     it just duplicates the hero's "Get my instant quote" CTA. */
+  .glassCta {
+    display: none;
+  }
+
+  .heroBottom {
+    padding: 0 24px 20px;
+  }
+}
+
+@media (max-width: 40em) {
+  .brandLogo {
+    max-width: calc(100vw - 176px);
+  }
+}
+
+@media (max-width: 28em) {
+  .heroTop {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+}

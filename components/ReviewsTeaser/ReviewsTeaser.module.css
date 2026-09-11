@@ -1,0 +1,113 @@
+.section {
+  padding: 84px 0 0;
+}
+
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.secHead {
+  text-align: center;
+  max-width: 42em;
+  margin: 0 auto 46px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rgw-green-deep);
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--rgw-ink);
+  margin: 0 0 12px;
+}
+
+.subheading {
+  color: var(--rgw-muted);
+  font-size: 17px;
+  margin: 0;
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.review {
+  background: #fff;
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(16, 22, 20, 0.05);
+}
+
+.stars {
+  display: flex;
+  gap: 3px;
+  color: #f2b705;
+  margin-bottom: 12px;
+}
+
+.reviewText {
+  font-size: 15px;
+  color: var(--rgw-ink);
+  margin: 0 0 16px;
+}
+
+.who {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--rgw-muted);
+}
+
+.inlineReviewsLink {
+  color: var(--rgw-muted);
+  text-decoration: underline;
+}
+
+.inlineReviewsLink:hover {
+  text-decoration: underline;
+}
+
+.reviewsLink {
+  display: block;
+  text-align: center;
+  margin-top: 36px;
+  font-weight: 700;
+  color: var(--rgw-green-deep);
+  text-decoration: none;
+}
+
+.reviewsLink:hover {
+  text-decoration: underline;
+}
+
+.gasSafeLink {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--rgw-muted);
+  text-decoration: none;
+}
+
+.gasSafeLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 56.25em) {
+  .reviews {
+    grid-template-columns: 1fr;
+  }
+}

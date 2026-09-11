@@ -1,0 +1,7 @@
+.page {
+  /* New block formatting context so the Hero's margin-top doesn't collapse
+     through this element and escape above the sage background. */
+  display: flow-root;
+  background: var(--rgw-sage);
+  padding-bottom: 20px;
+}

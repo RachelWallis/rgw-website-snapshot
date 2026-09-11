@@ -1,0 +1,48 @@
+.pillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  color: var(--rgw-ink);
+  border-radius: 999px;
+  padding: 10px 10px 10px 24px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 6px 24px rgba(16, 22, 20, 0.1);
+  transition: transform 0.15s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.pillBtn:hover {
+  transform: translateY(-1px);
+  color: var(--rgw-ink);
+}
+
+.circ {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--rgw-ink);
+  color: var(--rgw-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dark {
+  background: var(--rgw-ink);
+  color: #fff;
+}
+
+/* Keep the text white on hover — otherwise .pillBtn:hover's ink colour
+   (higher specificity than .dark) makes it black-on-black. */
+.dark:hover {
+  color: #fff;
+}
+
+.dark .circ {
+  background: #fff;
+  color: var(--rgw-ink);
+}

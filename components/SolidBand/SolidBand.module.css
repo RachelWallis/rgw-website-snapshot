@@ -1,0 +1,13 @@
+.band {
+  margin: 20px 20px 0;
+  border-radius: 26px;
+  height: 120px;
+  background: var(--rgw-ink);
+}
+
+@media (max-width: 48em) {
+  .band {
+    margin: 12px 12px 0;
+    height: 80px;
+  }
+}

@@ -1,0 +1,58 @@
+/* Calm Premium design tokens — raw hex, used by the homepage-style section
+   components (Hero, TrustStrip, ProblemsSolved, HowItWorks, ReviewsTeaser,
+   QuoteCta) for pixel fidelity to the design mockup. Kept separate from the
+   Mantine theme colors (rgwBlue/rgwOrange), which drive interactive
+   components (buttons, links) for consistent focus/hover states. */
+/* Accessibility overrides */
+
+/* Mantine's default dimmed (gray.6) is 3.9:1 on white — below WCAG AA for
+   body text. gray.7 gives ~7:1 while still reading as secondary text.
+   The site is light-only (see forceColorScheme in app/layout.tsx). */
+:root {
+  --rgw-sage: #cfe3d2;
+  --rgw-sage-soft: #e8f1e9;
+  --rgw-ink: #101614;
+  --rgw-ink-2: #26302b;
+  --rgw-muted: #4d5952; /* darkened from #5c6a62 — was 4.22:1 on --rgw-sage, below AA's 4.5:1 */
+  --rgw-green: #1e9e4b;
+  --rgw-green-deep: #137038;
+  --rgw-line: #dce7de;
+  --mantine-color-dimmed: var(--mantine-color-gray-7);
+}
+
+/* No orphaned words: balance heading lines, avoid widows in body text. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Consistent, visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 3px solid var(--mantine-color-rgwBlue-6);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  background: var(--mantine-color-rgwBlue-7);
+  color: var(--mantine-color-white);
+  padding: 10px 18px;
+  border-radius: 0 0 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+  top: 0;
+}

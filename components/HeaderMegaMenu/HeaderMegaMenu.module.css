@@ -1,0 +1,122 @@
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background-color: var(--mantine-color-white);
+    border-bottom: 1px solid var(--mantine-color-gray-2);
+  }
+
+  .phoneLink {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: var(--mantine-font-size-md);
+    color: var(--rgw-ink);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* Pill-nav wrapper, matching the homepage hero's nav pill. */
+  .navPill {
+    background: var(--rgw-sage-soft);
+    border-radius: 999px;
+    padding: 6px 8px;
+  }
+
+  .navLink {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--rgw-ink-2);
+    font-weight: 600;
+    font-size: var(--mantine-font-size-sm);
+  }
+
+  .navLink:hover {
+    background-color: #fff;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px var(--mantine-spacing-md);
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--mantine-color-black);
+    font-weight: 500;
+    font-size: var(--mantine-font-size-md);
+    border-radius: var(--mantine-radius-md);
+  }
+
+  .link:hover {
+    background-color: var(--mantine-color-gray-0);
+  }
+  
+  .subLink {
+    width: 100%;
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+    border-radius: var(--mantine-radius-md);
+  }
+
+  .subLink:hover {
+    background-color: var(--mantine-color-gray-0);
+  }
+  
+  .dropdownFooter {
+    background-color: var(--mantine-color-gray-0);
+    margin: calc(var(--mantine-spacing-md) * -1);
+    margin-top: var(--mantine-spacing-sm);
+    padding: var(--mantine-spacing-md) calc(var(--mantine-spacing-md) * 2);
+    padding-bottom: var(--mantine-spacing-xl);
+    border-top: 1px solid var(--mantine-color-gray-1);
+  }
+
+  .logoContainer {
+    padding: 0;
+    margin: 0;
+  }
+
+  .logolinkContainer {
+    justify-content: flex-start;
+  }
+
+  .rgwLogo {
+    display: block;
+    height: 28px;
+    width: auto;
+    max-width: 58vw;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  @media (min-width: 75em) {
+    .rgwLogo {
+      height: 35px;
+    }
+  }
+
+  /* Collapse the full nav to a burger at 80em, matching the homepage hero
+     (Hero.module.css). Below 80em the desktop nav + phone + Get a Quote won't
+     fit on one row, so they were cutting off; show the burger instead. */
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileNav {
+    display: flex;
+  }
+
+  @media (min-width: 80em) {
+    .desktopNav {
+      display: flex;
+    }
+
+    .mobileNav {
+      display: none;
+    }
+  }

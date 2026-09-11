@@ -1,0 +1,87 @@
+.wrap {
+  max-width: 1160px;
+  margin: 20px auto 0;
+  padding: 0 24px;
+}
+
+/* Distinct from the plain white cards elsewhere on the page (a coloured
+   left border + tinted background), but deliberately not a second dark
+   ink band — the site keeps one of those (HowItWorks). */
+.strip {
+  background: var(--rgw-sage-soft);
+  border: 1px solid var(--rgw-line);
+  border-left: none;
+  border-radius: 18px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.copy {
+  flex: 1;
+  min-width: 260px;
+}
+
+.heading {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--rgw-ink);
+  margin: 0 0 8px;
+}
+
+.body {
+  font-size: 14.5px;
+  color: var(--rgw-muted);
+  max-width: 56ch;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 700;
+  font-size: 14.5px;
+  white-space: nowrap;
+  text-decoration: none;
+  min-height: 44px;
+}
+
+.call {
+  background: var(--rgw-ink);
+  color: #fff;
+}
+
+.whatsapp {
+  /* WhatsApp's darker brand teal — the bright #25d366 green fails WCAG AA
+     contrast against white text/icons (~1.98:1); this measures ~7.67:1. */
+  background: #075e54;
+  color: #fff;
+}
+
+@media (max-width: 40em) {
+  .strip {
+    padding: 20px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .btn {
+    flex: 1;
+    justify-content: center;
+  }
+}

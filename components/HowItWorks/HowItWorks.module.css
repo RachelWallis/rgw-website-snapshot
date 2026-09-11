@@ -1,0 +1,84 @@
+.section {
+  padding: 0;
+}
+
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.band {
+  background: var(--rgw-ink);
+  border-radius: 26px;
+  padding: 56px 48px;
+  color: #fff;
+  margin-top: 84px;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--rgw-sage);
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.heading {
+  color: #fff;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 36px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.step {
+  background: var(--rgw-ink-2);
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.stepNum {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--rgw-green);
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.stepTitle {
+  color: #fff;
+  font-size: 17.5px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.stepBody {
+  font-size: 14.5px;
+  color: #aeb8b1;
+  margin: 0;
+}
+
+@media (max-width: 56.25em) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,25 @@
+.trust {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 24px 24px 0;
+}
+
+/* Informational labels, not buttons: no pill shape, no shadow/elevation. */
+.chip {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--rgw-ink);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--rgw-green);
+  flex-shrink: 0;
+}

@@ -1,0 +1,33 @@
+name: Publish help articles
+
+# RGW-087: the live site reads Help & Advice articles from Sanity, but the
+# drafts live in content/help-articles/ (see scripts/import-help-articles.ts
+# for why). Without this workflow, publishing a new or edited article was a
+# manual step someone had to remember to run — RGW-056 shipped a redirect to
+# smart-thermostats before anyone ran the import, so the page 404'd. This
+# runs the import automatically whenever a draft changes on main, and can
+# also be triggered by hand for a one-off republish.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/help-articles/**'
+      - 'scripts/import-help-articles.ts'
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - run: npm ci
+      - name: Publish help articles to Sanity
+        run: npm run content:import-help-articles
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+          SANITY_API_TOKEN: ${{ secrets.SANITY_API_TOKEN }}

@@ -1,0 +1,89 @@
+{
+  "name": "rgw-heating-plumbing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "analyze": "ANALYZE=true next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint .",
+    "stylelint": "stylelint '**/*.css' --cache",
+    "jest": "jest --passWithNoTests",
+    "jest:watch": "jest --watch",
+    "mantine-css:audit": "node scripts/mantine-css-audit.mjs",
+    "content:import-help-articles": "tsx scripts/import-help-articles.ts",
+    "prettier:check": "prettier --check \"**/*.{ts,tsx}\"",
+    "prettier:write": "prettier --write \"**/*.{ts,tsx}\"",
+    "test": "jest --passWithNoTests"
+  },
+  "dependencies": {
+    "@mantine/core": "^8.0.0",
+    "@mantine/dropzone": "^8.0.0",
+    "@mantine/form": "^8.0.0",
+    "@mantine/hooks": "^8.0.0",
+    "@mantine/modals": "^8.0.0",
+    "@mantine/nprogress": "^8.0.0",
+    "@mantine/spotlight": "^8.0.0",
+    "@next/bundle-analyzer": "^15.2.3",
+    "@portabletext/to-html": "^5.0.3",
+    "@sanity/client": "^7.25.0",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^6.3.0",
+    "@tabler/icons-react": "^3.31.0",
+    "@vercel/analytics": "^2.0.1",
+    "dayjs": "^1.11.13",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "next": "^16.3.4",
+    "next-sanity": "^13.1.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.8",
+    "resend": "^6.16.0",
+    "sanity": "^6.3.0",
+    "styled-components": "^6.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/eslint-plugin-jsx-a11y": "^6",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.11",
+    "@types/react": "19.0.12",
+    "eslint": "^9.23.0",
+    "eslint-config-mantine": "^4.0.3",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.4",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "postcss": "^8.5.3",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
+    "prettier": "^3.5.3",
+    "stylelint": "^16.16.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "ts-jest": "^29.2.6",
+    "tsx": "^4.23.12",
+    "typescript": "5.8.2",
+    "typescript-eslint": "^8.27.0"
+  },
+  "overrides": {
+    "sharp": "^0.35.0",
+    "@vercel/frameworks": {
+      "smol-toml": "^1.6.1",
+      "js-yaml": "^3.15.1"
+    },
+    "typeid-js": {
+      "uuid": "^11.1.1"
+    },
+    "@module-federation/dts-plugin": {
+      "undici": "^7.29.0"
+    }
+  }
+}

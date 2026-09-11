@@ -1,0 +1,71 @@
+# .github/workflows/ci.yml
+# Copy verbatim into all repos. Canonical copy: ted-c/templates/ci.yml
+#
+# Then, once per repo (needs GitHub Pro on a private repo):
+#   Settings → Branches → Add rule for `main`
+#     ✓ Require a pull request before merging
+#     ✓ Require status checks to pass  →  select "ci"
+#     ✓ Do not allow bypassing the above settings
+#   Settings → General → ✓ Allow auto-merge
+#
+# Bots then run:  gh pr merge --auto --squash
+# and GitHub merges when ci is green, or never.
+
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Each step runs only if the repo defines that script, so one file
+      # works across all seven repos. Add scripts to package.json to
+      # tighten the gate — do not weaken this file.
+      - name: typecheck
+        run: npm run typecheck --if-present
+
+      - name: lint
+        run: npm run lint --if-present
+
+      - name: format
+        run: npm run prettier:check --if-present
+
+      - name: test
+        run: npm run test --if-present
+
+      - name: build
+        run: npm run build --if-present
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+          # If the build needs env vars, add non-production placeholder
+          # values here or as repo secrets. Never a production key.
+
+      - name: What this green tick covers
+        if: always()
+        run: |
+          node -e '
+            const s = require("./package.json").scripts || {};
+            const want = ["typecheck","lint","prettier:check","test","build"];
+            console.log("### CI coverage\n" + want.map(k =>
+              s[k] ? `- \`${k}\` ran` : `- \`${k}\` **not defined — nothing ran**`
+            ).join("\n"));
+          ' >> "$GITHUB_STEP_SUMMARY"

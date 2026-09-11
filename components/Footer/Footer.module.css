@@ -1,0 +1,23 @@
+.footer {
+  background-color: var(--rgw-ink);
+  color: var(--mantine-color-white);
+  margin-top: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--mantine-spacing-xl);
+}
+
+@media (max-width: 62em) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 30em) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

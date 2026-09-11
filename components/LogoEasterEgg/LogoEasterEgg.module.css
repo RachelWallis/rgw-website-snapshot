@@ -1,0 +1,47 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.bubble {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 500;
+  background: var(--rgw-ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 10px 16px;
+  border-radius: 12px;
+  max-width: 220px;
+  white-space: normal;
+  box-shadow: 0 8px 24px rgba(16, 22, 20, 0.25);
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  animation: pop 4s ease forwards;
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}

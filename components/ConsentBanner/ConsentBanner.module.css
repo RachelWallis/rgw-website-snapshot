@@ -1,0 +1,34 @@
+.banner {
+  position: fixed;
+  z-index: 400;
+  inset-inline: 0;
+  bottom: 0;
+  max-width: rem(720px);
+  margin: var(--mantine-spacing-md);
+  margin-inline: auto;
+  background-color: var(--mantine-color-body);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    margin: var(--mantine-spacing-xs);
+  }
+}
+
+.inner {
+  display: flex;
+  gap: var(--mantine-spacing-md);
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.actions {
+  flex-shrink: 0;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    justify-content: flex-end;
+  }
+}

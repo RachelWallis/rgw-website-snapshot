@@ -1,0 +1,51 @@
+.rail {
+  position: fixed;
+  right: 14px;
+  bottom: 90px;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Matches the site's burger-nav breakpoint (Hero.module.css, HeaderMegaMenu's
+   .desktopNav/.mobileNav) — desktop keeps the header's nav + phone number. */
+@media (min-width: 80em) {
+  .rail {
+    display: none;
+  }
+}
+
+.btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(16, 22, 20, 0.25);
+  transition: transform 0.15s;
+}
+
+.btn:hover {
+  transform: scale(1.06);
+}
+
+.call {
+  background: var(--rgw-ink);
+  color: #fff;
+}
+
+.email {
+  background: #4fa8e0;
+  color: #fff;
+}
+
+.whatsapp {
+  /* WhatsApp's darker brand teal — kept distinct from the site's green
+     accent so the button stays instantly recognisable as WhatsApp. The
+     brighter #25d366 fails WCAG AA contrast against white (~1.98:1);
+     this measures ~7.67:1. */
+  background: #075e54;
+  color: #fff;
+}
